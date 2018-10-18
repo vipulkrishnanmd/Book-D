@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Review of you</h2>
+<br /><br />
+
+@foreach (String review in ViewData["list"] as IEnumerable<String>){
+    <p>" @Html.Raw(review) "</p>
+
+}

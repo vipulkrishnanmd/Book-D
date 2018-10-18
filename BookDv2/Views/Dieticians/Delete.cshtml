@@ -1,0 +1,81 @@
+﻿@model BookDv2.Models.Dietician
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Dietician</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.qualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qualification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.number_of_patients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number_of_patients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.d_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.d_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

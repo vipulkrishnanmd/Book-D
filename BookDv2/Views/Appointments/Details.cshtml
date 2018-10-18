@@ -1,0 +1,71 @@
+﻿@model BookDv2.Models.Appointment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Appointment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_id)
+        </dd>
+
+        <dt>
+            Date and Time
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datetime)
+        </dd>
+
+
+        <dt>
+            Booking Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            Review (Only see after the appointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.review)
+        </dd>
+
+
+    </dl>
+</div>
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    if (this.User.IsInRole("Dietician"))
+    {
+        <p>
+            @Html.ActionLink("Approve", "Approve", new { id = Model.Id }) |
+            @Html.ActionLink("Cancel", "Cancel", new { id = Model.Id }) |
+            @Html.ActionLink("Back", "Index")
+        </p>
+    }
+    else
+    {
+        <p>
+            @if(Model.review == null && Model.status == "approved"){
+            <div>@Html.ActionLink("Review", "Edit", new { id = Model.Id }) |</div>
+            }
+        @Html.ActionLink("Back", "Index")
+            </p>
+    }
+}
+

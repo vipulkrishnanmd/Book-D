@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .jumbotron {
+        background-image: url("../images/food.jpg");
+        background-size: cover;
+        color: white;
+    }
+</style>
+<br /><br />
+<div class="jumbotron">
+    <h1 class="text-danger bg-light">Book-D</h1>
+    <p class="lead">Helps you to chek if your food habits are proper and find  a dietician if you need.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+ {
+    if (this.User.IsInRole("Client"))
+    {
+<div class="row">
+    <div class="col-md-4">
+        <h2>Check your health</h2>
+        <p>
+            We provide a tool to determine if you are healthy and your food habits are proper.
+        </p>
+        <p><a class="btn btn-default" href="/home/bmi">Try now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Book and appointment</h2>
+        <p>Find a dietician near you and book an appointment</p>
+        <p><a class="btn btn-default" href="/dieticians/map">Book now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Review your appintments</h2>
+        <p>Review your appintment experience to help others to get to the best dietician.</p>
+        <p><a class="btn btn-default" href="#">Review now &raquo;</a></p>
+    </div>
+</div>
+    }
+    else if(this.User.IsInRole("Dietician"))
+    {
+<div class="row">
+    <div class="col-md-4">
+        <h2>Update details</h2>
+        <p>
+            Make your address and other details up to date.
+        </p>
+        <p><a class="btn btn-default" href="/dieticians/edit">Update now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Appointments</h2>
+        <p>Manage your appointments here.</p>
+        <p><a class="btn btn-default" href="/appointments/">Manage now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>See the reviews</h2>
+        <p>Reviews helps you to rae yourself and improve. Please note that the reviews are an important factor deciding the numeber of clients you get.</p>
+        <p><a class="btn btn-default" href="/appointments/review">See now &raquo;</a></p>
+    </div>
+</div>
+    }
+}

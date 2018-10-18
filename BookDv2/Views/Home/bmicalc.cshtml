@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/><br/><br/>
+
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" id="age" autocomplete="off" required />
+    </div>
+    <div class="form-group">
+        <label for="age">Gender</label>
+        <label class="container">
+            <input type="radio" name="radio" id="f"><p class="text">Female</p>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            <input type="radio" name="radio" id="m"><p class="text">Male</p>
+            <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="age">Height (cm)</label>
+        <input type="text" class="text-input" id="height" autocomplete="off" required><p class="text">
+    </div>
+    <div class="form-group">
+        <label for="age">Weight (kg)</label>
+        <input type="text" class="text-input" id="weight" autocomplete="off" required>
+    </div>
+    <button class="btn btn-danger" id="submit" onclick="validateForm();">Submit</button>
+</form>
+<div id="result">
+
+</div>
+
+<a href="/home/food">Check your food</a>
+@Scripts.Render("~/Scripts/bmi.js")
